@@ -2,15 +2,20 @@ package com.alexkozyura.tutorial.jdbc;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileWriter;
+import java.io.Writer;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by Alex Kozyura (mail@alexkozyura.com) on 30.10.2020
  */
 
 public class Start {
+
     public static void main(String[] args){
 
         try {
@@ -44,6 +49,8 @@ public class Start {
             DBUtils.openConnection(dbPath);
 
             for (String sqlRequest : sqlRequests){
+
+                resultBuilder.append("\n");
                 resultBuilder.append("Request : " + sqlRequest + "\n");
                 resultBuilder.append("Response : " + "\n");
                 TableObject table = DBUtils.getResultTable(sqlRequest);
@@ -61,46 +68,30 @@ public class Start {
                 }
             }
 
+            writeTextToFile(resultBuilder.toString());
+
             System.out.println(resultBuilder);
+
+            DBUtils.closeConnection();
 
         } catch (Exception e){
 
-            e.printStackTrace();
+            Logger.getLogger(DBUtils.class.getName()).log(Level.SEVERE, null, e);
         }
+    }
 
+    private static void writeTextToFile(String str){
 
+        try {
 
+            Writer fileWriter = new FileWriter("result.txt");
+            fileWriter.write(str);
+            fileWriter.flush();
+            fileWriter.close();
 
-//        Connection connection = null; // connection to db
-//        Statement statement = null; // store and execute sql requests
-//        ResultSet resultSet = null; // get responses result
-//
-//        try {
-//
-//
-//            connection = DriverManager.getConnection(url);
-//
-//            // prepare SQL request
-//            String  sql = "SELECT * FROM dict_model";
-//            statement = connection.createStatement();
-//
-//            // execute SQL request
-//            resultSet = statement.executeQuery(sql);
-//
-//
-//
-//        } catch (SQLException e){
-//            e.printStackTrace();
-//        } catch (Exception e){
-//            e.printStackTrace();
-//        } finally {
-//            try {
-//                if (resultSet!=null) resultSet.close();
-//                if (statement!=null) statement.close();
-//                if (connection!=null) statement.close();
-//            } catch (Exception e){
-//                e.printStackTrace();
-//            }
-//        }
+        } catch (Exception e){
+
+            Logger.getLogger(Start.class.getName()).log(Level.SEVERE, null, e);
+        }
     }
 }
