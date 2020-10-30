@@ -1,0 +1,3 @@
+E:\Docs\workspace\Java\java-jdbc
+
+SELECT * FROM dict_model;
