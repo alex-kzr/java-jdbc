@@ -31,8 +31,22 @@ public class Start {
             resultSet = statement.executeQuery(sql);
 
             // process result
+            ResultSetMetaData metaData = resultSet.getMetaData();
+            int columnCount = metaData.getColumnCount();
+
+            String tableHeader = "";
+            for(int i = 1; i <= columnCount; i++){
+                tableHeader += metaData.getColumnName(i) + ", ";
+            }
+            System.out.println(tableHeader);
+
             while (resultSet.next()){
-                System.out.println(resultSet.getString("dmd_name_en") + " - " + resultSet.getObject("dmd_name_ru"));
+
+                String tableRow = "";
+                for (int i = 1; i <= columnCount; i++){
+                    tableRow += resultSet.getString(i) + ", ";
+                }
+                System.out.println(tableRow);
             }
 
         } catch (SQLException e){
