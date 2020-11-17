@@ -1,11 +1,9 @@
-package com.alexkozyura.tutorial.jdbc;
+package com.alexkozyura.tutorial.jdbc.to_file;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.Writer;
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;

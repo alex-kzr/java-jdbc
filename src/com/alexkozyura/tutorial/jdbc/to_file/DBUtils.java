@@ -1,4 +1,4 @@
-package com.alexkozyura.tutorial.jdbc;
+package com.alexkozyura.tutorial.jdbc.to_file;
 
 import java.sql.*;
 import java.util.ArrayList;
