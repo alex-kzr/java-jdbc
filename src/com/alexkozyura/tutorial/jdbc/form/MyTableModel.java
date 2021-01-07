@@ -79,11 +79,11 @@ public class MyTableModel extends AbstractTableModel {
                 if (columnClasses[i] == String.class) {
                     cellValue = resultSet.getString(columnNames[i]);
                 } else if (columnClasses[i] == Integer.class) {
-                    cellValue = resultSet.getInt(columnNames[i]);
+                    cellValue = new Integer(resultSet.getInt(columnNames[i]));
                 } else if (columnClasses[i] == Float.class) {
-                    cellValue = resultSet.getFloat(columnNames[i]);
+                    cellValue = new Float(resultSet.getFloat(columnNames[i]));
                 } else if (columnClasses[i] == Double.class) {
-                    cellValue = resultSet.getDouble(columnNames[i]);
+                    cellValue = new Double(resultSet.getDouble(columnNames[i]));
                 } else if (columnClasses[i] == java.sql.Date.class) {
                     cellValue = resultSet.getDate(columnNames[i]);
                 } else {
