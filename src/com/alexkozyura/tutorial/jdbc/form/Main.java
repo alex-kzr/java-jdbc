@@ -16,10 +16,11 @@ public class Main {
             JTable jTable = new JTable(tableModel);
 
             TableRowSorter<TableModel> tableRowSorter = new TableRowSorter<>(tableModel);
-
             tableRowSorter.setComparator(2, new MyComparator());
-
             jTable.setRowSorter(tableRowSorter);
+
+            MyTableRenderer cellRenderer = new MyTableRenderer();
+            jTable.setDefaultRenderer(Object.class, cellRenderer);
 
         } catch (Exception e) {
             e.printStackTrace();
