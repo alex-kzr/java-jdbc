@@ -14,7 +14,7 @@ public class Main {
 
         try (Connection connection = SQLiteConnection.getConnection()) {
 
-            TableModel tableModel = new MyTableModel(connection, "dict_brand");
+            TableModel tableModel = new MyTableModel(connection, "vehicle_list");
 
             JTable jTable = new JTable(tableModel);
 
