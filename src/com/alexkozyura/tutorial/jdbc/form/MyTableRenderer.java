@@ -15,6 +15,8 @@ public class MyTableRenderer extends DefaultTableCellRenderer {
                                                    int row,
                                                    int column) {
 
+        setText(value.toString());
+
         if (isSelected)  {
             setBackground(Color.ORANGE);
             setForeground(Color.BLACK);
