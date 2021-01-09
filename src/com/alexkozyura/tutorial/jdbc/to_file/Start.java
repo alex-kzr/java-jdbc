@@ -4,6 +4,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.Writer;
+<<<<<<< HEAD:src/com/alexkozyura/tutorial/jdbc/to_file/Start.java
+=======
+import java.sql.*;
+import java.util.ArrayList;
+>>>>>>> 040cfe0881352cf58e8bf13138eb4904ede6ce2f:src/com/alexkozyura/tutorial/jdbc/Start.java
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
